@@ -37,6 +37,88 @@
 <p>Export CSV files from javascript objects in the browser</p>
 
 <h2>
+<a id="demo" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>
+  Enter JSON data below, then <a href="javascript:void(0);" id="export-button">here</a> to download as CSV</p>
+<p>
+  <textarea id="sample-data" style="width: 100%; min-height: 300px; border: none;">
+[
+  {
+    "id": "6b67fd46-2db7-4b2e-9e93-94930a8a4a13",
+    "picture": "http://placehold.it/32x32",
+    "name": "Kirkland Joyner",
+    "gender": "male",
+    "age": 23,
+    "email": "kirklandjoyner@example.com",
+    "phone": "+1 (933) 555-2676",
+    "address": "673 Campus Place, Blackgum, Federated States Of Micronesia, 6389"
+  },
+  {
+    "id": "e2a02b56-e678-4180-96b4-1800b4c16423",
+    "picture": "http://placehold.it/32x32",
+    "name": "Lindsey Herrera",
+    "gender": "female",
+    "age": 39,
+    "email": "lindseyherrera@example.com",
+    "phone": "+1 (843) 555-2972",
+    "address": "386 Agate Court, Whitehaven, Alabama, 183"
+  },
+  {
+    "id": "0ce6ce3e-4ab3-445e-b8c8-a04ebaa492c9",
+    "picture": "http://placehold.it/32x32",
+    "name": "Oneal Woodward",
+    "gender": "male",
+    "age": 30,
+    "email": "onealwoodward@example.com",
+    "phone": "+1 (860) 555-2379",
+    "address": "613 Highlawn Avenue, Libertytown, Indiana, 6827"
+  },
+  {
+    "id": "66e4e665-9c6c-4cf2-8a2f-3752db17dc0b",
+    "picture": "http://placehold.it/32x32",
+    "name": "Garza Mendez",
+    "gender": "male",
+    "age": 27,
+    "email": "garzamendez@example.com",
+    "phone": "+1 (978) 555-3922",
+    "address": "368 Amboy Street, Sussex, Iowa, 4029"
+  },
+  {
+    "id": "8d70de4c-ccfd-4abd-80a4-298bafeacf77",
+    "picture": "http://placehold.it/32x32",
+    "name": "Lester Hicks",
+    "gender": "male",
+    "age": 38,
+    "email": "lesterhicks@example.com",
+    "phone": "+1 (949) 555-3885",
+    "address": "372 Arlington Place, Campo, Virginia, 9068"
+  },
+  {
+    "id": "6850827c-ecc3-465b-b1fa-bbcf6ba9d76b",
+    "picture": "http://placehold.it/32x32",
+    "name": "Erna Avila",
+    "gender": "female",
+    "age": 20,
+    "email": "ernaavila@example.com",
+    "phone": "+1 (884) 555-3962",
+    "address": "438 Bridge Street, Skyland, Northern Mariana Islands, 146"
+  },
+  {
+    "id": "55bc30e0-3fae-4183-b931-1b58336e41a2",
+    "picture": "http://placehold.it/32x32",
+    "name": "Martina Kidd",
+    "gender": "female",
+    "age": 36,
+    "email": "martinakidd@example.com",
+    "phone": "+1 (988) 555-2330",
+    "address": "293 Lott Street, Frank, Delaware, 9108"
+  }
+]
+  </textarea>
+</p>
+
+<h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">let</span> exporter <span class="pl-k">=</span> <span class="pl-smi">Export</span>.<span class="pl-en">create</span>();
@@ -99,6 +181,22 @@
     </div>
 
     
-
+    <script src="dist/Export.min.js"></script>
+    <script>
+      (function() {
+        var exportButton = document.getElementById("export-button");
+        var sampleData = document.getElementById("sample-data");
+        var exporter = Export.create();
+        exportButton.addEventListener("click", function(e) {
+          try {
+            var data = JSON.parse(sampleData.value);
+            exporter.downloadCsv(data);
+          } catch (err) {
+            alert("Unable to read data");
+          }
+        });
+      })();
+      
+    </script>
   </body>
 </html>
