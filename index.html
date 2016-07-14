@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Jscsvexport : Export CSV files from javascript objects in the browser">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Jscsvexport</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/edamtoft/JsCsvExport">View on GitHub</a>
+
+          <h1 id="project_title">Jscsvexport</h1>
+          <h2 id="project_tagline">Export CSV files from javascript objects in the browser</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/edamtoft/JsCsvExport/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/edamtoft/JsCsvExport/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="jscsvexport" class="anchor" href="#jscsvexport" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JsCsvExport</h1>
+
+<p>Export CSV files from javascript objects in the browser</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">let</span> exporter <span class="pl-k">=</span> <span class="pl-smi">Export</span>.<span class="pl-en">create</span>();
+
+<span class="pl-k">let</span> people <span class="pl-k">=</span> [
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Alice<span class="pl-pds">"</span></span>, age<span class="pl-k">:</span> <span class="pl-c1">20</span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>, age<span class="pl-k">:</span> <span class="pl-c1">19</span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Charlie<span class="pl-pds">"</span></span>, age<span class="pl-k">:</span> <span class="pl-c1">30</span>}
+];
+
+<span class="pl-smi">exporter</span>.<span class="pl-en">downloadCsv</span>(people);
+</pre></div>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<ul>
+<li>Option 1: Download <a href="https://raw.githubusercontent.com/edamtoft/JsCsvExport/master/dist/Export.min.js">https://raw.githubusercontent.com/edamtoft/JsCsvExport/master/dist/Export.min.js</a>
+</li>
+<li>Option 2: Install via $ npm install csvexport and add a script tag for "node_modules/csvexport/dist/Export.min.js"</li>
+</ul>
+
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p>Export.create takes an options object which supports the following:</p>
+
+<ul>
+<li>delimiter: specify a custom delimeter (string; optional; default = ",")</li>
+<li>contentType: specity a custom contentType (string; optional; default = "text/csv")</li>
+<li>headers: object which maps property names to headers. Put header as null to remove a particular field (object; optional)</li>
+<li>formatters: object which maps property names to a function which will return the formatted value (object; optional)</li>
+</ul>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">let</span> exporter <span class="pl-k">=</span> <span class="pl-smi">Export</span>.<span class="pl-en">create</span>({
+  delimiter<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span>,
+  contentType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>text/tab-separated-values<span class="pl-pds">"</span></span>,
+  headers<span class="pl-k">:</span> {
+    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Person's Name<span class="pl-pds">"</span></span>,
+    age<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Person's Age<span class="pl-pds">"</span></span>
+  },
+  formatters<span class="pl-k">:</span> {
+    <span class="pl-en">age</span><span class="pl-k">:</span> <span class="pl-smi">age</span> <span class="pl-k">=&gt;</span> age <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> years old<span class="pl-pds">"</span></span>
+  }
+});
+
+<span class="pl-smi">exporter</span>.<span class="pl-en">downloadCsv</span>(people);</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Jscsvexport maintained by <a href="https://github.com/edamtoft">edamtoft</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
