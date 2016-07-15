@@ -7,7 +7,20 @@
     <meta name="description" content="Jscsvexport : Export CSV files from javascript objects in the browser">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <style>
+      #export-button {
+        border: #007edf 1px solid;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,.1);
+        text-decoration: none!important;
+      }
+      #export-button:hover {
+        box-shadow: 0 0 10px #007edf;
+      }
+    </style>
     <title>CsvExport</title>
   </head>
 
@@ -40,7 +53,7 @@
 <a id="demo" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
 
 <p>
-  Enter JSON data below, then <a href="javascript:void(0);" id="export-button">here</a> to download as CSV</p>
+  Enter JSON data below, then click the link below to download as CSV</p>
 <p>
   <textarea id="sample-data" style="width: 100%; min-height: 300px; border: none;">
 [
@@ -117,6 +130,8 @@
 ]
   </textarea>
 </p>
+
+<p><h4><a href="javascript:void(0);" id="export-button">Export As CSV <i class="fa fa-download" aria-hidden="true"></i></a></h4></p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
