@@ -150,7 +150,9 @@
 <li>delimiter: specify a custom delimeter (string; optional; default = ",")</li>
 <li>contentType: specity a custom contentType (string; optional; default = "text/csv")</li>
 <li>filename: a name for the file to download (string; options; default = "export.csv")</li>
-<li>headers: object which maps property names to headers. Put header as null to remove a particular field (object; optional)</li>
+<li>includeHeaders: choose to include or exclude the headers as the first row (boolean; optional; default = true)</li>
+<li>columns: choose which columns to include. If not specified, will use the properties of the first data item (object; optional)</li>
+<li>headers: object which maps property names to headers. (object; optional)</li>
 <li>formatters: object which maps property names to a function which will return the formatted value (object; optional)</li>
 </ul>
 
