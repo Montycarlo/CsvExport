@@ -1,5 +1,4 @@
-(() => {
-  
+
 class CsvWriter {
   constructor(delimiter = ",", contentType = "text/csv") {
     this._delimiter = delimiter;
@@ -87,4 +86,4 @@ class Export {
 
 window.Export = Export;
 
-})();
+export default Export;
