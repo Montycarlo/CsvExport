@@ -29,6 +29,7 @@ Export.create takes an options object which supports the following:
 
 * delimiter: specify a custom delimeter (string; optional; default = ",")
 * contentType: specity a custom contentType (string; optional; default = "text/csv")
+* nullStr: specify a custom value for 'null' value cells (string; optional; default = "")
 * filename: a name for the file to download (string; options; default = "export.csv")
 * includeHeaders: choose to include or exclude the headers as the first row (boolean; optional; default = true) 
 * columns: choose which columns to include. If not specified, will use the properties of the first data item (array; optional)
@@ -42,6 +43,7 @@ let exporter = Export.create({
   contentType: "text/tab-separated-values",
   filename: "some-filename.tsv",
   includeHeaders: "false",
+  nullStr: "",
   columns: ["name","age"],
   headers: {
     name: "Person's Name",

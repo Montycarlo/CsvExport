@@ -39,12 +39,17 @@ class Export {
     let getFormater = header => formatters[header] || (v => v);
     let writer = new CsvWriter(delimeter,contentType);
     let headers = this._options.columns || Object.getOwnPropertyNames(data[0]);
+    let nullStr = this._options.nullStr || "";
     if (includeHeaders === undefined || includeHeaders) {
       headers.forEach(header => writer.writeValue(headerNames[header]||header));
       writer.writeLine();
     }
     data.forEach(row => {
-      headers.forEach(header => writer.writeValue(getFormater(header)(row[header])));
+      headers.forEach(header => {
+        let v = getFormater(header)(row[header]);
+        if(v == null) v = nullStr;
+        writer.writeValue(v);
+      });
       writer.writeLine();
     });
     return writer.toBlob();
