@@ -74,7 +74,6 @@ class Export {
   
   downloadCsv(data) {
   	try {
-    	console.info("Generating CSV download");
       let blob = this._createCsvBlob(data);
       let filename = this._options.filename || "export.csv";
       this._download(blob, filename);
